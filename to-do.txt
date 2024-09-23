@@ -1,0 +1,5 @@
+- Carrusel
+- Formulario contacto
+- adicionales
+- Acerca de
+- Footer
