@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // site: 'https://www.funerariaaurora.cl',
   integrations: [tailwind(), sitemap()],
-  output: 'static',
-  base: '/practica/', // Asegúrate de usar el nombre del repositorio aquí.
-  site: 'https://tsukimotot.github.io/practica/',
+  // output: 'static',
+  base: 'practica', // Asegúrate de usar el nombre del repositorio aquí.
+  site: 'https://tsukimotot.github.io',
 })
