@@ -1,0 +1,89 @@
+---
+// Este es el componente map.astro
+---
+
+<div class="container py-16">
+    <h2 class="text-center text-white text-4xl font-bold my-8">Contacto</h2>
+    <div style="position: relative;">
+        <div class="info-box">
+            <p><strong>Santiago, Chile</strong></p>
+            <p>Isla Portezuelo #516</p>
+            <p><strong>+56 9 3187 3669</strong></p>
+            <p>Email: contacto@funerariaaurora.cl</p>
+            <p>Horario de Atención: Abierto las 24 horas</p>
+        </div>
+
+        <div style="width: 100%; height: 500px;">
+            <iframe
+                width="100%"
+                height="100%"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=El%20Portezuelo%20516+(My%20Business%20Name)&t=&z=18&ie=UTF8&iwloc=B&output=embed"
+            >
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        /* padding: 0 1rem; Ajusta el padding para que coincida con la barra superior */
+        max-width: 1200px; /* Limita el ancho máximo para que todo se vea centrado */
+        margin: 0 auto;
+    }
+
+    .map-container {
+        position: relative;
+        width: 100%;
+        height: 500px; /* Ajusta la altura según tu diseño */
+    }
+
+    .iframe-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-info {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .contact-info p {
+        color: #000;
+    }
+
+    .highlight {
+        color: #f5a623;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 25%;
+        left: 0.7rem; /* Ajusta según el margen izquierdo deseado */
+        background-color: white;
+        padding: 1.5rem;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+</style>
