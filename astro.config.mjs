@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.funerariaaurora.cl',
+  // site: 'https://www.funerariaaurora.cl',
   integrations: [tailwind(), sitemap()],
   output: 'static',
   base: '/practica/', // Asegúrate de usar el nombre del repositorio aquí.
