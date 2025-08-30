@@ -2,9 +2,8 @@
   <nav id="navbar" class="bg-slate-200 shadow-md fixed top-0 w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo o nombre del sitio -->
+        <!-- Logo -->
         <div class="flex-shrink-0 flex items-center space-x-2 ml-2">
-          <!-- Aquí colocarías el logo -->
           <a href="/">
             <img
               src="images/logo.png"
@@ -14,7 +13,7 @@
           </a>
         </div>
 
-        <!-- Navegación normal -->
+        <!-- Navegación desktop -->
         <div class="hidden lg:flex flex-grow justify-around items-center">
           <a href="/" class="px-3 py-2 text-gray-800 hover:text-blue-500"
             >Inicio</a
@@ -24,41 +23,41 @@
             class="px-3 py-2 text-gray-800 hover:text-blue-500">Acerca de</a
           >
 
-          <!-- Menú desplegable para Planes (hover en escritorio) -->
+          <!-- Menú Planes (hover en desktop) -->
           <div class="relative group">
             <button
               id="planes-button"
               class="px-3 py-2 text-gray-800 hover:text-blue-500 focus:outline-none"
-              >Planes</button
+              aria-expanded="false"
+              aria-haspopup="true"
             >
-            <!-- Menú desplegable -->
+              Planes
+            </button>
             <div
               class="absolute hidden group-hover:block bg-white border rounded shadow-lg mt-0 w-48"
+              role="menu"
+              aria-labelledby="planes-button"
             >
               <a
                 href="/cuota-mortuoria-AFP"
                 class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >Cuota Mortuoria AFP</a
               >
-
               <a
                 href="/cuota-mortuoria-IPS"
                 class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >Cuota Mortuoria IPS</a
               >
-
               <a
                 href="/plan-classic"
                 class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >Plan Classic</a
               >
-
               <a
                 href="/plan-platinum"
                 class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >Plan Platinum</a
               >
-
               <a
                 href="/plan-elegance"
                 class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -68,22 +67,19 @@
           </div>
 
           <a
-            href="/adicionales"
-            class="px-3 py-2 text-gray-800 hover:text-blue-500">Adicionales</a
-          >
-          <a
             href="/contacto"
             class="px-3 py-2 text-gray-800 hover:text-blue-500">Contacto</a
           >
         </div>
 
-        <!-- Botón del menú para móviles -->
+        <!-- Botón menú móvil -->
         <div class="-mr-2 flex items-center lg:hidden">
           <button
             type="button"
             id="mobile-menu-button"
             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
             aria-expanded="false"
+            aria-controls="mobile-menu"
           >
             <svg
               class="h-6 w-6"
@@ -103,7 +99,7 @@
       </div>
     </div>
 
-    <!-- Menú desplegable móvil (oculto por defecto, visible solo en móviles) -->
+    <!-- Menú móvil -->
     <div id="mobile-menu" class="hidden lg:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a
@@ -117,6 +113,8 @@
           <button
             id="mobile-planes-button"
             class="block w-full text-left px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500 focus:outline-none"
+            aria-expanded="false"
+            aria-controls="mobile-planes-menu"
           >
             Planes
           </button>
@@ -155,11 +153,6 @@
           >Acerca de</a
         >
         <a
-          href="/adicionales"
-          class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500"
-          >Adicionales</a
-        >
-        <a
           href="/contacto"
           class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-500"
           >Contacto</a
@@ -167,24 +160,33 @@
       </div>
     </div>
 
-    <script>
-      // Mostrar/ocultar el menú desplegable en versión móvil
-      const mobilePlanesButton = document.getElementById(
-        "mobile-planes-button",
+    <!-- Script: sin errores "possibly null" -->
+    <script type="module">
+      // Obtiene nodos
+      const mobilePlanesButton = document.querySelector(
+        "#mobile-planes-button",
       );
-      const mobilePlanesMenu = document.getElementById("mobile-planes-menu");
+      const mobilePlanesMenu = document.querySelector("#mobile-planes-menu");
+      const mobileMenuButton = document.querySelector("#mobile-menu-button");
+      const mobileMenu = document.querySelector("#mobile-menu");
 
-      mobilePlanesButton.addEventListener("click", () => {
-        mobilePlanesMenu.classList.toggle("hidden");
-      });
+      // Toggle del submenú "Planes" en móvil
+      if (mobilePlanesButton && mobilePlanesMenu) {
+        mobilePlanesButton.addEventListener("click", () => {
+          mobilePlanesMenu.classList.toggle("hidden");
+          const expanded = !mobilePlanesMenu.classList.contains("hidden");
+          mobilePlanesButton.setAttribute("aria-expanded", String(expanded));
+        });
+      }
 
-      // Muestra/oculta el menú móvil
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+      // Toggle del menú móvil completo
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          const expanded = !mobileMenu.classList.contains("hidden");
+          mobileMenuButton.setAttribute("aria-expanded", String(expanded));
+        });
+      }
     </script>
   </nav>
 </header>

@@ -9,6 +9,6 @@ export default defineConfig({
   // site: 'https://www.funerariaaurora.cl',
   integrations: [tailwind(), sitemap()],
   // output: 'static',
-  base: 'practica', // Asegúrate de usar el nombre del repositorio aquí.
-  site: 'https://tsukimotot.github.io',
+  // base: 'practica', 
+  // site: 'https://tsukimotot.github.io',
 })

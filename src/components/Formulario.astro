@@ -2,11 +2,11 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl text-white font-bold mb-6">
             Contáctenos <br />
-            <span class="text-white"
-                >y reciba su <span class="text-teal-700 font-semibold"
+            <span class="text-white">
+                y reciba su <span class="text-teal-700 font-semibold"
                     >asesoría gratuita</span
-                ></span
-            >
+                >
+            </span>
         </h2>
 
         <form class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -34,15 +34,18 @@
                 required
             />
 
+            <!-- En móvil: 1 columna. Desde sm: ocupa las 3 -->
             <textarea
                 name="mensaje"
                 placeholder="Mensaje*"
-                class="col-span-3 p-3 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 h-32 resize-none"
+                class="col-span-1 sm:col-span-3 p-3 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 h-32 resize-none"
                 required></textarea>
 
+            <!-- En móvil: 1 columna completa y ancho total -->
+            <!-- Desde sm: puedes elegir que ocupe 1 o las 3 columnas -->
             <button
                 type="submit"
-                class="col-span-1 bg-teal-700 hover:bg-teal-600 text-white py-3 px-6 transition duration-300"
+                class="col-span-1 sm:col-span-1 bg-teal-700 hover:bg-teal-600 text-white py-3 px-6 transition duration-300 w-full block text-center"
             >
                 ENVIAR
             </button>
